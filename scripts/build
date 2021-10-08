@@ -1,0 +1,25 @@
+#!/bin/bash
+PATH="./node_modules/.bin:$PATH"
+export NODE_ENV=production
+
+# exit on any error
+set -e
+
+# clean
+echo Cleaning…
+rm -rf dist
+
+# compile types
+echo Compiling types…
+tsc
+
+# compile JS
+echo Compiling javascript…
+NODE_ENV=cjs babel \
+  --ignore "src/**/*.test.ts"\
+  --source-maps true \
+  --extensions .ts,.js \
+  --out-dir dist \
+  ./src
+
+rollup -c

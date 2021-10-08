@@ -1,0 +1,13 @@
+**/.github
+/coverage
+/docs
+/scripts
+/src
+.babelrc
+.eslintrc
+.prettierrc
+.releaserc.json
+jest.config.js
+rennovate.json
+rollup.config.js
+tsconfig.json
